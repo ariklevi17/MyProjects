@@ -1,0 +1,22 @@
+package basicweb;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class MyDronesSearch {
+
+	public static void main(String[] args) {
+		String baseURL = "http://www.amazon.com";
+		WebDriver driver;
+		System.setProperty("webdriver.chrome.driver", "D:\\Program Files\\Selenium\\libs\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get(baseURL);
+
+		driver.findElement(By.name("field-keywords")).sendKeys("drones");
+		driver.findElement(By.xpath("//div[@class='nav-search-submit nav-sprite']//input[@class='nav-input']")).click();
+		driver.findElement(By.name("s-ref-checkbox-DJI")).click();
+		driver.findElement(By.xpath("//a[@class='a-link-normal s-ref-text-link']//span[@class='a-size-small a-color-base a-text-bold']")).click();
+		driver.findElement(By.id("pagnNextString")).click();
+		driver.findElement(By.className("a-size-small a-color-base")).click();
