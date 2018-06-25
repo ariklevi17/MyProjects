@@ -1,0 +1,27 @@
+package basicweb;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class AuroraSolar {
+
+	public static void main(String[] args) throws InterruptedException {
+		String baseURL = "http://www.aurorasolar.com"; 
+		WebDriver driver;
+		System.setProperty("webdriver.chrome.driver", "D:\\Program Files\\Selenium\\libs\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get(baseURL);
+		
+		driver.findElement(By.linkText("Features")).click();
+		((JavascriptExecutor)driver).executeScript("scroll(0, 450)");
+		Thread.sleep(2000);
+		driver.findElement(By.className("feature-block-body")).click();
+		((JavascriptExecutor)driver).executeScript("scroll(0, 450)");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("/html/body/section/section[1]/div/div[2]/video")).click();
+		Thread.sleep(8000);
+		driver.findElement(By.xpath("/html/body/section/section[1]/div/div[2]/video")).click();
+		//driver.quit();
